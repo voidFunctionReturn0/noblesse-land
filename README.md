@@ -5,12 +5,15 @@
 2. 고유공직자는 미공개 정보를 이용할 가능성이 있으므로, 고위공직자 부동산 소유액이 많은 곳은 향후 가치가 상승할 가능성이 높을 것 같음
 3. 재산 공개 데이터는 PDF 형식이라, 고위공직자가 어느 동네, 어느 아파트에 부동산 소유액이 많은지 알기 어려움
 
+
 ### 해결 방법
 고위공직자 부동산 정보를 (읍/면/동 or 아파트) 단위로 묶어서
 소유 자산액이 많은 순으로 랭킹을 볼 수 있도록 함
 
+
 ### 주요 타겟
 부동산 투자에 관심이 있는 사람
+
 
 ### 할 일
 <b>Python 앱(data 폴더)</b><br/>
@@ -25,3 +28,7 @@
 <label for="show_properties_rank">(동네 or 아파트) 랭킹 표시하기</label><br/>
 <label for="search_location">지역 검색 기능 추가</label><br/>
 <label for="search_name">공직자 이름 검색 기능 추가</label><br/>
+
+
+### 예시 이미지
+![Untitled](https://github.com/user-attachments/assets/eb536a94-b2bf-459e-bcfe-bd533fd01247)
