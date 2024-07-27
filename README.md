@@ -13,14 +13,14 @@
 부동산 투자에 관심이 있는 사람
 
 ### 할 일
-[Python 앱(data 폴더)]<br/>
+<b>[Python 앱(data 폴더)]</b><br/>
 <del><label for="download_pdf">PDF 다운로드(일단 수동으로 하고, 추후 자동화)</label></del><br/>
 <del><label for="parse_pdf">PDF 파싱</label></del><br/>
 <del><label for="naver_location_search_api">아파트별 위도, 경도 정보 불러오기(네이버 지역 검색 API 사용)</label></del><br/>
 <del><label for="get_profile_image">공직자별 프로필 사진 저장하기(나무위키 스크래핑)</label></del><br/>
 <label for="insert_data">공직자, 재산 데이터를 DB에 저장하기</label><br/>
 
-[Phoenix 앱(service 폴더)]<br/>
+<b>[Phoenix 앱(service 폴더)]</b><br/>
 <label for="show_properties_map">재산 정보를 지도로 표시하기</label><br/>
 <label for="show_properties_rank">(동네 or 아파트) 랭킹 표시하기</label><br/>
 <label for="search_location">지역 검색 기능 추가</label><br/>
