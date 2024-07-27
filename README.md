@@ -31,4 +31,4 @@
 
 
 ### 예시 이미지
-![Untitled](https://github.com/user-attachments/assets/eb536a94-b2bf-459e-bcfe-bd533fd01247)
+<img width="360" src="https://github.com/user-attachments/assets/eb536a94-b2bf-459e-bcfe-bd533fd01247" />
