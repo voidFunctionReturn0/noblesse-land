@@ -13,39 +13,15 @@
 부동산 투자에 관심이 있는 사람
 
 ### 할 일
-<div>
-  <input type="checkbox" id="download_pdf" name="download_pdf" checked />
-  <del><label for="download_pdf">PDF 다운로드(일단 수동으로 하고, 추후 자동화)</label></del>
-</div>
-<div>
-  <input type="checkbox" id="parse_pdf" name="parse_pdf" checked />
-  <del><label for="parse_pdf">PDF 파싱</label></del>
-</div>
-<div>
-  <input type="checkbox" id="naver_location_search_api" name="naver_location_search_api" checked />
-  <del><label for="naver_location_search_api">아파트별 위도, 경도 정보 불러오기(네이버 지역 검색 API 사용)</label></del>
-</div>
-<div>
-  <input type="checkbox" id="get_profile_image" name="get_profile_image" checked />
-  <del><label for="get_profile_image">공직자별 프로필 사진 저장하기(나무위키 스크래핑)</label></del>
-</div>
-<div>
-  <input type="checkbox" id="insert_data" name="insert_data" checked />
-  <label for="insert_data">공직자, 재산 데이터를 DB에 저장하기</label>
-</div>
-<div>
-  <input type="checkbox" id="show_properties_map" name="show_properties_map" checked />
-  <label for="show_properties_map">재산 정보를 지도로 표시하기</label>
-</div>
-<div>
-  <input type="checkbox" id="show_properties_rank" name="show_properties_rank" checked />
-  <label for="show_properties_rank">(동네 or 아파트) 랭킹 표시하기</label>
-</div>
-<div>
-  <input type="checkbox" id="search_location" name="search_location" checked />
-  <label for="search_location">지역 검색 기능 추가</label>
-</div>
-<div>
-  <input type="checkbox" id="search_name" name="search_name" checked />
-  <label for="search_name">공직자 이름 검색 기능 추가</label>
-</div>
+[Python 앱(data 폴더)]
+<del><label for="download_pdf">PDF 다운로드(일단 수동으로 하고, 추후 자동화)</label></del>
+<del><label for="parse_pdf">PDF 파싱</label></del>
+<del><label for="naver_location_search_api">아파트별 위도, 경도 정보 불러오기(네이버 지역 검색 API 사용)</label></del>
+<del><label for="get_profile_image">공직자별 프로필 사진 저장하기(나무위키 스크래핑)</label></del>
+<label for="insert_data">공직자, 재산 데이터를 DB에 저장하기</label>
+
+[Phoenix 앱(service 폴더)]
+<label for="show_properties_map">재산 정보를 지도로 표시하기</label>
+<label for="show_properties_rank">(동네 or 아파트) 랭킹 표시하기</label>
+<label for="search_location">지역 검색 기능 추가</label>
+<label for="search_name">공직자 이름 검색 기능 추가</label>
