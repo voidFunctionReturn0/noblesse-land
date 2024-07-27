@@ -31,7 +31,6 @@
 
 
 ### 예시 이미지
-![Home (1)](https://github.com/user-attachments/assets/80a950b2-7918-4f7b-8c36-265b41de9d71)
-![LandDetails](https://github.com/user-attachments/assets/a369e7cd-9dfb-417f-8d3a-54dc4b7d4311)
-![NoblesseDetails](https://github.com/user-attachments/assets/52f31428-8139-428a-a0db-cda508f89332)
-/a369e7cd-9dfb-417f-8d3a-54dc4b7d4311)
+<img width="300" src="https://github.com/user-attachments/assets/80a950b2-7918-4f7b-8c36-265b41de9d71" />
+<img width="300" src="https://github.com/user-attachments/assets/a369e7cd-9dfb-417f-8d3a-54dc4b7d4311" />
+<img width="300" src="https://github.com/user-attachments/assets/52f31428-8139-428a-a0db-cda508f89332" />
