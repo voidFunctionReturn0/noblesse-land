@@ -7,5 +7,5 @@ class Building:
     type: str
     details: str
     price: int
-    note: str
+    note: str = None
     coordinates: Optional[Coordinates] = None

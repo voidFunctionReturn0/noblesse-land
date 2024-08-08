@@ -1,0 +1,26 @@
+# asdf
+# erlang 27.0.1
+# elixir 1.17.2-otp-27
+# local.hex 1.16.0/hex-2.1.1.ez
+# phx_new-1.7.14
+# postgresql 16.3 (Ubuntu 16.3-1.pgdg22.04+1)
+# nvm 0.40.0, node 20.16.0, npm 10.8.1
+
+# 참고
+# http://ohyecloudy.com/pnotes/archives/asdf/
+# https://chatgpt.com/c/44032696-fd8f-4308-94d9-20e23b24680e
+# https://hexdocs.pm/phoenix/installation.html
+# https://help.ubuntu.com/community/PostgreSQL
+# https://medium.com/@stephanedmonson/solution-for-connecting-postgresql-via-wsl-windows-subsystem-for-linux-ubuntu18-c79940fa5742
+# https://learn.microsoft.com/ko-kr/windows/dev-environment/javascript/nodejs-on-wsl
+# https://elixirforum.com/t/how-to-apply-css-to-phoenix-1-7-14-app/65330/2
+# oracle cloud 인스턴스 세팅: https://mycodings.fly.dev/blog/2022-08-07-complete-introduction-of-oracle-cloud-free-tier
+# postgresql 원격접속 허용 방법1: https://chaeeunsong.tistory.com/39
+# postgresql 원격접속 허용 방법2: https://mycodings.fly.dev/blog/2023-02-15-install-postgresql-on-oracle-cloud-free-tier-ubuntu-22-04
+
+
+
+# 운영 환경은 asdf로 설치하니까 메모리 부족 때문인지 진행이 안되서, apt로 설치함
+# erlang 25
+# elixir 1.14.0
+# postgresql 16.3

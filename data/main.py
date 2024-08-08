@@ -14,8 +14,9 @@ from repo import Repo
 from bs4 import BeautifulSoup as bs
 
 
-NAMU_WIKI_DOMAIN = 'https://namu.wiki'
-DEFAULT_PROFILE_IMAGE_PATH = f'res/account_circle.png'
+# NAMU_WIKI_DOMAIN = 'https://namu.wiki'
+DEFAULT_PROFILE_IMAGE_NAME = 'account_circle.png'
+DEFAULT_PROFILE_IMAGE_PATH = f'res/{DEFAULT_PROFILE_IMAGE_NAME}'
 
 
 def remove_newline(string):
@@ -134,89 +135,101 @@ def fetch(URL):
     return requests.get(URL)
 
 
-def download(SRC_URL, FILE_PATH):
-    FILE_PATH = FILE_PATH.replace(' ', '')
-    print(f' FILE_PATH: {FILE_PATH}')
+# def download(SRC_URL, FILE_PATH):
+#     FILE_PATH = FILE_PATH.replace(' ', '')
+#     print(f' FILE_PATH: {FILE_PATH}')
 
-    if not os.path.isfile(FILE_PATH):
-        os.system(f'curl --output {FILE_PATH} {SRC_URL}')
-        time.sleep(random.uniform(2,4))   
-
-
-def has_profile_image(div_tag):
-    if div_tag.has_attr('style'):
-        style = div_tag['style'].replace(' ', '')
-        return (style == 'width:420px;') or (style == 'width:400px;')
-    else:
-        return False
+#     if not os.path.isfile(FILE_PATH):
+#         os.system(f'curl --output {FILE_PATH} {SRC_URL}')
+#         time.sleep(random.uniform(2,4))   
 
 
-def get_image_from_detail_page(DETAIL_URL, FILE_NAME):
-    print(f'## url: {DETAIL_URL}')
-    print(f'## file_name: {FILE_NAME}')
-
-    RESPONSE = fetch(DETAIL_URL)
-    if RESPONSE.status_code != 200:
-        print('## ERROR')
-        print(f'## response: {RESPONSE}')
-        raise Exception('상세페이지 불러오기 실패')
-
-    DIVS = bs(RESPONSE.text, 'html.parser').find_all('div')
-    DIVS = list(filter(has_profile_image, DIVS))
-
-    if len(DIVS) == 0:
-        return DEFAULT_PROFILE_IMAGE_PATH
-
-    IMAGES = DIVS[0].find_all('img')
-
-    if len(IMAGES) == 0:
-        return DEFAULT_PROFILE_IMAGE_PATH
-
-    PROFILE_IMAGE = IMAGES[0]
-    SRC = PROFILE_IMAGE.get('src')
-    SRC_URL = 'https:' + SRC
-    FILE_EXTENSION = SRC.split('.')[-1]
-    FILE_PATH = f'res/{FILE_NAME}.{FILE_EXTENSION}'
-    download(SRC_URL, FILE_PATH)
-    return FILE_PATH
+# def has_profile_image(div_tag):
+#     if div_tag.has_attr('style'):
+#         style = div_tag['style'].replace(' ', '')
+#         return (style == 'width:420px;') or (style == 'width:400px;')
+#     else:
+#         return False
 
 
-def create_image_path(NAME, ORGANIZATION, POSITION):
-    image_path = DEFAULT_PROFILE_IMAGE_PATH
-    QUERY = ' '.join([NAME, ORGANIZATION, POSITION])
-    SEARCH_PATH = '/Search?q='
-    SEARCH_URL = NAMU_WIKI_DOMAIN + SEARCH_PATH + QUERY
-    RESPONSE = fetch(SEARCH_URL)
+# def get_image_from_detail_page(DETAIL_URL, FILE_NAME):
+#     print(f'## url: {DETAIL_URL}')
+#     print(f'## file_name: {FILE_NAME}')
 
-    if RESPONSE.status_code == 200:
-        SECTION_ITEMS = bs(RESPONSE.text, 'html.parser').select('section')[0].children
-        RESULTS = [ITEM for ITEM in SECTION_ITEMS if ITEM.name == 'div']
-        MATCHING_RESULTS = []
-        for RESULT in RESULTS:
-            A_TAG = RESULT.find('a')
-            if A_TAG:
-                TITLE = A_TAG.text.strip()
-                TEXT = RESULT.text
-                ORGANIZATION_PARTS = ORGANIZATION.split(' ')
-                POSITION_PARTS = POSITION.split(' ')
-                if (NAME in TITLE) and all([PART in TEXT for PART in ORGANIZATION_PARTS]) and all([PART in TEXT for PART in POSITION_PARTS]):
-                    MATCHING_RESULTS.append(RESULT)
+#     RESPONSE = fetch(DETAIL_URL)
+#     if RESPONSE.status_code != 200:
+#         print('## ERROR')
+#         print(f'## response: {RESPONSE}')
+#         raise Exception('상세페이지 불러오기 실패')
+
+#     DIVS = bs(RESPONSE.text, 'html.parser').find_all('div')
+#     DIVS = list(filter(has_profile_image, DIVS))
+
+#     if len(DIVS) == 0:
+#         print(f"## len(DIVS) == 0!!!!")
+#         return DEFAULT_PROFILE_IMAGE_PATH
+
+#     IMAGES = DIVS[0].find_all('img')
+
+#     if len(IMAGES) == 0:
+#         return DEFAULT_PROFILE_IMAGE_PATH
+
+#     PROFILE_IMAGE = IMAGES[0]
+#     SRC = PROFILE_IMAGE.get('src')
+#     SRC_URL = 'https:' + SRC
+#     FILE_EXTENSION = SRC.split('.')[-1]
+#     FILE_PATH = f'res/{FILE_NAME}.{FILE_EXTENSION}'
+#     download(SRC_URL, FILE_PATH)
+#     print(f"## FILE_PATH: {FILE_PATH}")
+#     return FILE_PATH
+
+
+# 프로필 이미지 다운로드 전
+# def create_image_path(NAME, ORGANIZATION, POSITION):
+#     image_path = DEFAULT_PROFILE_IMAGE_PATH
+#     QUERY = ' '.join([NAME, ORGANIZATION, POSITION])
+#     SEARCH_PATH = '/Search?q='
+#     SEARCH_URL = NAMU_WIKI_DOMAIN + SEARCH_PATH + QUERY
+#     RESPONSE = fetch(SEARCH_URL)
+
+#     if RESPONSE.status_code == 200:
+#         SECTION_ITEMS = bs(RESPONSE.text, 'html.parser').select('section')[0].children
+#         RESULTS = [ITEM for ITEM in SECTION_ITEMS if ITEM.name == 'div']
+#         MATCHING_RESULTS = []
+#         for RESULT in RESULTS:
+#             A_TAG = RESULT.find('a')
+#             if A_TAG:
+#                 TITLE = A_TAG.text.strip()
+#                 TEXT = RESULT.text
+#                 ORGANIZATION_PARTS = ORGANIZATION.split(' ')
+#                 POSITION_PARTS = POSITION.split(' ')
+#                 if (NAME in TITLE) and all([PART in TEXT for PART in ORGANIZATION_PARTS]) and all([PART in TEXT for PART in POSITION_PARTS]):
+#                     MATCHING_RESULTS.append(RESULT)
         
-        if len(MATCHING_RESULTS) > 0:
-            MATCHING_RESULTS.sort(key=lambda RESULT: len(RESULT.find('a').text.strip()))
-            RESULT = MATCHING_RESULTS[0]
-            HREF = RESULT.find('a').get('href')
-            FILE_PATH = get_image_from_detail_page(NAMU_WIKI_DOMAIN + HREF, f'{ORGANIZATION}_{POSITION}_{NAME}')
-            if FILE_PATH:
-                image_path = FILE_PATH
+#         if len(MATCHING_RESULTS) > 0:
+#             MATCHING_RESULTS.sort(key=lambda RESULT: len(RESULT.find('a').text.strip()))
+#             RESULT = MATCHING_RESULTS[0]
+#             HREF = RESULT.find('a').get('href')
+#             FILE_PATH = get_image_from_detail_page(NAMU_WIKI_DOMAIN + HREF, f'{ORGANIZATION}_{POSITION}_{NAME}')
+#             if FILE_PATH:
+#                 image_path = FILE_PATH
         
-    else:
-        print('## ERROR')
-        print(f'## response: {RESPONSE}')
-        raise Exception('크롤링 실패')
+#     else:
+#         print('## ERROR')
+#         print(f'## response: {RESPONSE}')
+#         raise Exception('크롤링 실패')
     
-    return image_path
+#     return image_path
 
+
+# 프로필 이미지 다운로드 후
+def create_image_path(NAME, ORGANIZATION, POSITION):
+    FILE_NAME = f'{ORGANIZATION}_{POSITION}_{NAME}.webp'.replace(' ', '')
+    FILE_PATH = f'res/{FILE_NAME}'
+    if os.path.isfile(FILE_PATH):
+        return FILE_NAME
+    else:
+        return DEFAULT_PROFILE_IMAGE_NAME
 
 def row_processor(acc, row):
     owners, buildings, owners_buildings, is_creating_building = acc
@@ -250,7 +263,13 @@ def row_processor(acc, row):
             relation, type, details, price, note = list(map(remove_newline, [relation, type, details, price, note]))
             if '(' in price:
                 price, _실거래가격 = price.split('(')
-            buildings, owners_buildings = update_building(relation, type, details, price, owners, buildings, owners_buildings)
+            buildings, owners_buildings = update_building(relation, type, details, price, note, owners, buildings, owners_buildings)
+        
+        case [relation, type, details, None, price, note, None] if (is_creating_building == True):
+            relation, type, details, price, note = list(map(remove_newline, [relation, type, details, price, note]))
+            if '(' in price:
+                price, _실거래가격 = price.split('(')
+            buildings, owners_buildings = update_building(relation, type, details, price, note, owners, buildings, owners_buildings)
 
         # 8 params
         case [relation, type, details, _종전가액, _증가액, _감소액, price, note] if (is_creating_building == True):
@@ -316,6 +335,8 @@ for DIR_NAME in os.listdir(ORIGINS_PATH):
         PDF = pdfplumber.open(PDF_PATH)
         owners, buildings, owners_buildings, _is_creating_building = reduce(page_processor, PDF.pages, [[], [], [], False])
 
+        owners = [owner for owner in owners if owner.relation is not None]
+
         total_building_len += len(buildings)
         total_owner_len += len(owners)
         print(f'## owners len: {len(owners)}')
@@ -325,8 +346,19 @@ for DIR_NAME in os.listdir(ORIGINS_PATH):
         print(f'## total_owner_len: {total_owner_len}')
         print('')
 
+        # DB INSERT
+        repo = Repo()
+        for building in buildings:
+            repo.insert_building(building)
 
-# PDF_PATH = "./origins/2024_03_28/경기도_240328.pdf"
+        for owner in owners:
+            repo.insert_owner(owner)
+
+        for owner_building in owners_buildings:
+            repo.insert_owner_building(owner_building)
+
+
+# PDF_PATH = "./origins/2024_03_28/행정중심복합도시건설청_240328.pdf"
 # pdf = pdfplumber.open(PDF_PATH)
 # CREATED_AT = datetime.datetime(2024, 3, 28)
 # pages = pdf.pages
@@ -336,18 +368,6 @@ for DIR_NAME in os.listdir(ORIGINS_PATH):
 # print(f'## owners_buildings len: {len(owners_buildings)}')
 # for ob in owners_buildings:
 #     print(ob)
-
-
-## DB INSERT
-# repo = Repo()
-# for building in buildings:
-#     repo.insert_building(building)
-
-# for owner in owners:
-#     repo.insert_owner(owner)
-
-# for owner_building in owners_buildings:
-#     repo.insert_owner_building(owner_building)
 
 
 print(f"time : {time.time() - start} sec")
