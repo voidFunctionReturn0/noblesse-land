@@ -3,10 +3,10 @@ import psycopg2
 # PostgreSQL 연결 정보
 # TODO: DB 연결 정보 숨기기
 USERNAME = 'postgres'
-PASSWORD = 'postgres'
+PASSWORD = 'PostgreSQL'
 HOSTNAME = 'localhost'
-PORT = '5433'
-DATABASE_NAME = 'noblesse_land'
+PORT = '5432'
+DATABASE_NAME = 'service_dev'
 
 class Repo:
     def __init__(self):
@@ -32,7 +32,7 @@ class Repo:
             None
     
     def is_existing_owner_building(self, owner_building):
-        self.cur.execute("SELECT owner_id FROM owner_buildings WHERE owner_id = %s and building_id = %s;", [self.get_owner_id(owner_building.owner), self.get_building_id(owner_building.building)])
+        self.cur.execute("SELECT owner_id FROM owners_buildings WHERE owner_id = %s and building_id = %s;", [self.get_owner_id(owner_building.owner), self.get_building_id(owner_building.building)])
         result = self.cur.fetchone()
         if result:
             return True
@@ -63,6 +63,6 @@ class Repo:
         owner_id = self.get_owner_id(owner_building.owner)
 
         if not self.is_existing_owner_building(owner_building):
-            SQL_QUERY = "INSERT INTO owner_buildings (owner_id, building_id, created_at) VALUES (%s, %s, %s);"
+            SQL_QUERY = "INSERT INTO owners_buildings (owner_id, building_id, created_at) VALUES (%s, %s, %s);"
             self.cur.execute(SQL_QUERY, (owner_id, building_id, owner_building.created_at))
             self.conn.commit()

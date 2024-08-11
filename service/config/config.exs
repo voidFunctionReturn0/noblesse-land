@@ -20,7 +20,7 @@ config :service, ServiceWeb.Endpoint,
     layout: false
   ],
   pubsub_server: Service.PubSub,
-  live_view: [signing_salt: "YrO6+/5l"]
+  live_view: [signing_salt: "tKKfaQUk"]
 
 # Configure esbuild (the version is required)
 config :esbuild,
@@ -34,7 +34,7 @@ config :esbuild,
 
 # Configure tailwind (the version is required)
 config :tailwind,
-  version: "3.4.7",
+  version: "3.4.3",
   service: [
     args: ~w(
       --config=tailwind.config.js

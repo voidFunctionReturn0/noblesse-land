@@ -7,7 +7,7 @@ defmodule ServiceWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_service_key",
-    signing_salt: "lNGu79/r",
+    signing_salt: "SazhsOWQ",
     same_site: "Lax"
   ]
 

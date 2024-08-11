@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :service, Service.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "PostgreSQL",
   hostname: "localhost",
   database: "service_dev",
   stacktrace: true,
@@ -23,7 +23,7 @@ config :service, ServiceWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "Le+tI7nLMslOZsIAVX2yYvBUxfJacIMVC5/yMlBS2JVJnjGqL3+xCVBYybMgqbZj",
+  secret_key_base: "1cHUMSS3SHmXR75dvQf5dqO+AoS0YHvmJBgQ0J50swELvqWkyjpsYQShjNRjg3Q9",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:service, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:service, ~w(--watch)]}

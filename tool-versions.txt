@@ -17,7 +17,7 @@
 # oracle cloud 인스턴스 세팅: https://mycodings.fly.dev/blog/2022-08-07-complete-introduction-of-oracle-cloud-free-tier
 # postgresql 원격접속 허용 방법1: https://chaeeunsong.tistory.com/39
 # postgresql 원격접속 허용 방법2: https://mycodings.fly.dev/blog/2023-02-15-install-postgresql-on-oracle-cloud-free-tier-ubuntu-22-04
-
+# romote-ssh 무한로딩 https://yongeekd01.tistory.com/37
 
 
 # 운영 환경은 asdf로 설치하니까 메모리 부족 때문인지 진행이 안되서, apt로 설치함

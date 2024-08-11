@@ -17,7 +17,7 @@ config :service, Service.Repo,
 # you can enable the server option below.
 config :service, ServiceWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "WB+kYcjovL6lRLDtq7dMjeZGl8bJSgQKybQMD8hJXJ19SIAZ2nmZAfmlZ62INVZy",
+  secret_key_base: "tfcCgBCKeRiWx9wFm8vDvQqIMjshNcy6I02U+yPiKE1y5GSYaUJ59nl3xtHanZO4",
   server: false
 
 # Print only warnings and errors during test
