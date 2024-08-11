@@ -3,7 +3,7 @@ defmodule Service.OwnerBuilding do
   alias Service.Repo
   alias Service.OwnerBuilding
 
-  schema "owner_buildings" do
+  schema "owners_buildings" do
     field :owner_id, :integer
     field :building_id, :integer
     field :created_at, :naive_datetime

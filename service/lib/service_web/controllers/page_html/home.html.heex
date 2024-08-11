@@ -5,10 +5,27 @@
     <div id="map" class="w-full h-full"></div>
     <script>
         var mapOptions = {
-            center: new naver.maps.LatLng(37.3595704, 127.105399),
+            center: new naver.maps.LatLng(37.5666805, 126.9784147),
             zoom: 10
         };
 
         var map = new naver.maps.Map('map', mapOptions);
+
+        <%!-- let marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(37.5100671, 126.94357320),
+            map: map
+        }); --%>
     </script>
+    <%!-- <%= for building <- @buildings do %>
+        <%= if building.coordinates != nil do %>
+            <script>
+                <% {lat, lng} = building.coordinates %>
+                let marker = new naver.maps.Marker({
+                    position: new naver.maps.LatLng(<%= lng*10000000 %>, <%= lat*10000000 %>),
+                    map: map
+                });
+            </script>
+        <% end %>
+    <% end %> --%>
+    <%!-- <% IO.inspect @buildings %> --%>
 </main>
