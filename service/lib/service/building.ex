@@ -1,5 +1,6 @@
 defmodule Service.Building do
   use Ecto.Schema
+  import Ecto.Query
   alias Service.Repo
   alias Service.Building
 
@@ -17,6 +18,8 @@ defmodule Service.Building do
   end
 
   def get_buildings do
-    Repo.all(Building)
+    Building
+    |> where([b], not is_nil b.coordinates) # TODO: coordinate가 필수로 있도록 하기
+    |> Repo.all()
   end
 end

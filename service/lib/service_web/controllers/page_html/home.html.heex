@@ -4,28 +4,35 @@
 <main class="h-full">
     <div id="map" class="w-full h-full"></div>
     <script>
-        var mapOptions = {
+        const map = new naver.maps.Map('map', {
+            zoom: 15,
             center: new naver.maps.LatLng(37.5666805, 126.9784147),
-            zoom: 10
-        };
-
-        var map = new naver.maps.Map('map', mapOptions);
-
-        <%!-- let marker = new naver.maps.Marker({
-            position: new naver.maps.LatLng(37.5100671, 126.94357320),
-            map: map
-        }); --%>
+        });
+        const markers = [];
     </script>
-    <%!-- <%= for building <- @buildings do %>
-        <%= if building.coordinates != nil do %>
-            <script>
-                <% {lat, lng} = building.coordinates %>
-                let marker = new naver.maps.Marker({
-                    position: new naver.maps.LatLng(<%= lng*10000000 %>, <%= lat*10000000 %>),
-                    map: map
-                });
-            </script>
+
+    <%!-- TODO: lat, lng 저장할 때부터 순서 바꾸고 10**7로 나누기 --%>
+    <script>
+    function onLoad() {
+        <%= for building <- @buildings do %>
+            <% [lng, lat] = building.coordinates |> Tuple.to_list |> Enum.map(&(&1/(10**7))) %>
+            const marker = new naver.maps.Marker({
+                position: new naver.maps.LatLng(<%= lat %>, <%= lng %>),
+                darggable: true
+            });
+            markers.push(marker)
         <% end %>
-    <% end %> --%>
+
+        const markerClustering = new markerClustering({
+            minClusterSize: 2,
+            maxZoom: 8,
+            map: map,
+            markers: markers,
+            disableClickZoom: false,
+            gridSize: 120,
+            indexGenerator: [10, 100, 200, 500, 1000],
+        })
+    }
+    </script>
     <%!-- <% IO.inspect @buildings %> --%>
 </main>
