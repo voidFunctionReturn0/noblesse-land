@@ -32,5 +32,5 @@
 
 ### 예시 이미지
 <img width="200" src="https://github.com/user-attachments/assets/860136d0-d803-4f0e-9ebe-94d3ed7bbb9" />
-<img width="200" src="https://github.com/user-attachments/assets/e23f263d-c625-4d5d-a4cb-9a51baee04db" />
+<img width="200" src="https://github.com/user-attachments/assets/d9ddfcce-7fe0-48fd-a1cd-a27c3e4cac8b" />
 <img width="200" src="https://github.com/user-attachments/assets/3d97c303-5bfd-4d6a-bba1-19443d9500c8" />
