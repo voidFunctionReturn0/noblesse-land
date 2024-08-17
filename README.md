@@ -31,6 +31,6 @@
 
 
 ### 예시 이미지
-<img width="200" src="https://github.com/user-attachments/assets/860136d0-d803-4f0e-9ebe-94d3ed7bbb9" />
+<img width="200" src="https://github.com/user-attachments/assets/ffa56439-46e6-4764-956b-6653746ab604" />
 <img width="200" src="https://github.com/user-attachments/assets/d9ddfcce-7fe0-48fd-a1cd-a27c3e4cac8b" />
 <img width="200" src="https://github.com/user-attachments/assets/3d97c303-5bfd-4d6a-bba1-19443d9500c8" />
