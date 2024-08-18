@@ -86,9 +86,9 @@ def fetch_coordinates(details, buildings):
         if "items" in response:
             response = response["items"]
             if response:
-                x = response[0]["mapx"]
-                y = response[0]["mapy"]
-                return Coordinates(x, y)
+                longitude = int(response[0]["mapx"]) / (10**7)
+                latitude = int(response[0]["mapy"]) / (10**7)
+                return Coordinates(latitude, longitude)
             else:
                 return None
         elif response['errorMessage'] == 'Rate limit exceeded. (속도 제한을 초과했습니다.)':
@@ -346,6 +346,7 @@ for DIR_NAME in os.listdir(ORIGINS_PATH):
         print(f'## total_owner_len: {total_owner_len}')
         print('')
 
+        # TODO: json 데이터 개수와 db 데이터 개수가 다른 문제
         # DB INSERT
         repo = Repo()
         for building in buildings:
