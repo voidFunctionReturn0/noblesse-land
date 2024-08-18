@@ -11,10 +11,9 @@
         const markers = [];
     </script>
 
-    <%!-- TODO: lat, lng 저장할 때부터 순서 바꾸고 10**7로 나누기 --%>
     <script>
         <%= for building <- @buildings do %>
-            <% [lng, lat] = building.coordinates |> Tuple.to_list |> Enum.map(&(&1/(10**7))) %>
+            <% {lng, lat} = building.coordinates %>
             var marker = new naver.maps.Marker({
                 position: new naver.maps.LatLng(<%= lat %>, <%= lng %>),
                 darggable: true
