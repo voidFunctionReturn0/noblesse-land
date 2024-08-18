@@ -743,3 +743,5 @@ Cluster.prototype = {
 
 
 };
+
+export default MarkerClustering;
